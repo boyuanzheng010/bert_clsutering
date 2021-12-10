@@ -1,7 +1,7 @@
 import torch
 import pdb
 import sys
-
+from tqdm import tqdm
 
 #dump_key = "cls.predictions.decoder.weight"
 default_dump_key= "bert.embeddings.word_embeddings.weight"
@@ -12,10 +12,10 @@ Usage = "Usage:  examine_model <1/2> \n\t\t1-for dumping pytorch model (python d
 def examine(command,model_name,key_name):
 	md = torch.load(model_name,map_location='cpu')
 	if (command == 1):
-		for k in md:
+		for k in tqdm(md):
 		    print(k)
 	elif (command == 2):
-		for k in md:
+		for k in tqdm(md):
 			if (k == key_name):
 				embeds = md[k]
 				print(embeds.tolist())

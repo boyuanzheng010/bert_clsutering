@@ -10,6 +10,7 @@ from transformers import *
 import sys
 import random
 import time
+import os
 
 SINGLETONS_TAG  = "_singletons_ "
 EMPTY_TAG = "_empty_ "
